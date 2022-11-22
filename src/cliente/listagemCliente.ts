@@ -90,7 +90,7 @@ export default class ListagemCliente extends Listagem {
                 console.log(`Quantidade: ` + cliente.getQuantidade);
                 console.log(`--------------------------------------`);
             }
-        }
+        })
         
     }
 
@@ -108,7 +108,7 @@ export default class ListagemCliente extends Listagem {
                 console.log(`Valor total: ` + cliente.getValorTotal());
                 console.log(`--------------------------------------`);
             }
-        }
+        })
     }
 
 }
