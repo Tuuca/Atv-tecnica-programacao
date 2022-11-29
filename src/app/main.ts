@@ -16,24 +16,26 @@ let empresa = new Empresa()
 let execucao = true
 
 while (execucao) {
-    console.log(`Opções:`);
+    console.log(`\nOpções:`);
 
     console.log(`1 - Cadastrar cliente`);
     console.log(`2 - Listar todos os clientes`);
     console.log(`3 - Editar cliente`);
-    console.log(`4 - Excluir cliente`);
+    console.log(`4 - Excluir cliente\n`);
     
     console.log(`5 - Cadastrar produto`);
     console.log(`6 - Listar todos os produtos`);
     console.log(`7 - Editar produto`);
-    console.log(`8 - Excluir produto`);
+    console.log(`8 - Excluir produto\n`);
 
     console.log(`9 - Listar 10 clientes que mais consumiram em quantidade`);
     console.log(`10 - Listar clientes por gênero`);
     console.log(`11 - Listagem geral dos serviços ou produtos mais consumidos`);
     console.log(`12 - Listar os serviços ou produros mais consumidos por gênero`);
-    console.log(`13 - Listar os 10 clientes que menos consumiram`);
-    console.log(`14 - Listar os 5 clientes que mais consumiram em valor`);    
+    console.log(`13 - Listar os 10 clientes que menos consumiram produtos`);
+    console.log(`14 - Listar os 5 clientes que mais consumiram em valor\n`);    
+
+    console.log(`15 - Cadastrar consumo de produto `)
     
     console.log(`0 - Sair`);
 
@@ -100,17 +102,43 @@ while (execucao) {
             break;
 
         case 12:
-            // Listagem dos 10 clientes que menos consumiram em quantidade
+            // Listar os serviços ou produros mais consumidos por gênero
             let listagem12 = new ListagemClientes(empresa.getClientes)
             listagem12.listagem12()
             break;
 
         case 13:
-            // Listagem dos 5 clientes que mais consumiram em valor
+            // Listar os 10 clientes que menos consumiram
             let listagem13 = new ListagemClientes(empresa.getClientes)
             listagem13.listagem13()
             break;
 
+        case 14:
+            // Listar os 5 clientes que mais consumiram em valor
+            let listagem14 = new ListagemClientes(empresa.getClientes)
+            listagem14.listagem14()
+            break;
+
+        case 15:
+            console.log(`Cadastro de consumo de produto`);
+            let cpf = entrada.receberTexto(`Por favor, digite o CPF do cliente: `)
+            let cliente = empresa.getClientes.find(cliente => cliente.getCpf.getValor == cpf);
+            if (cliente) {
+                let codigo = entrada.receberTexto(`Por favor, digite o nome do produto: `)
+                let produto = empresa.getProdutos.find(produto => produto.nome == codigo);
+                if (produto) {
+                    cliente.adicionarProduto(produto)
+                    console.log(`Produto adicionado com sucesso!`);
+                } else {
+                    console.log(`Produto não encontrado`)
+                    break
+                }
+            } else {
+                console.log(`Cliente não encontrado`)
+                break
+            }
+            break;
+            
         case 0:
             execucao = false
             console.log(`Até mais`)

@@ -16,9 +16,7 @@ export default class EditarCliente extends Editar {
         let cliente = this.clientes.find(cliente => cliente.getCpf.getValor === cpf)
         if (cliente) {
             let nome = this.entrada.receberTexto(`Por favor informe o nome do cliente: `)
-            let nomeSocial = this.entrada.receberTexto(`Por favor informe o nome social do cliente: `)
             cliente.nome = nome
-            cliente.nomeSocial = nomeSocial
             console.log(`\nEdição concluída :)\n`);
         } else {
             console.log(`\nCliente não encontrado :(\n`);
