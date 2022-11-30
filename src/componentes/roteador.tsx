@@ -1,7 +1,10 @@
 import { Component } from "react";
 import BarraNavegacao from "./barraNavegacao";
+import Home from "./home";
 import FormularioCadastroCliente from "./formularioCadastroCliente";
-import ListaCliente from "./listaCliente";
+import FormularioCadastroProduto from "./formularioCadastroProduto";
+import FormularioCadastroConsumo from "./formularioCadastroConsumo";
+import Listagem from "./Listagem";
 
 type state = {
     tela: string
@@ -25,22 +28,50 @@ export default class Roteador extends Component<{}, state> {
     }
 
     render() {
-        let barraNavegacao = <BarraNavegacao seletorView={this.selecionarView} tema="purple lighten-4" botoes={['Clientes', 'Cadastros']} />
-        if (this.state.tela === 'Clientes') {
+        let barraNavegacao = <BarraNavegacao seletorView={this.selecionarView} tema="purple lighten-4" botoes={['Home', 'Cadastrar clientes', 'Cadastrar produto', 'Cadastrar consumo', 'Listagens']} />
+        if (this.state.tela === 'Home') {
             return (
                 <>
                     {barraNavegacao}
-                    <ListaCliente tema="purple lighten-4" />
+                    <Home tema="purple lighten-4" />
                 </>
             )
-        } else {
+        } else if (this.state.tela === 'Cadastrar clientes') {
             return (
                 <>
                     {barraNavegacao}
                     <FormularioCadastroCliente tema="purple lighten-4" />
                 </>
             )
+        } else if (this.state.tela === 'Cadastrar produto') {
+            return (
+                <>
+                    {barraNavegacao}
+                    <FormularioCadastroProduto tema="purple lighten-4" />
+                </>
+            )
+        } else if (this.state.tela === 'Cadastrar consumo') {
+            return (
+                <>
+                    {barraNavegacao}
+                    <FormularioCadastroConsumo tema="purple lighten-4" />
+                </>
+            )
+        } else if (this.state.tela === 'Listagens') {
+            return (
+                <>
+                    {barraNavegacao}
+                    <Listagem tema="purple lighten-4" />
+                </>
+            )
+        } else {
+            return (
+                <>
+                    {barraNavegacao}
+                    <Home tema="purple lighten-4" />
+                </>
+            )
         }
 
     }
-}
+}	
