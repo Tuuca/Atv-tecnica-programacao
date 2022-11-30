@@ -1,9 +1,13 @@
 import { Component } from "react";
 import BarraNavegacao from "./barraNavegacao";
 import Home from "./home";
-import FormularioCadastroCliente from "./formularioCadastroCliente";
-import FormularioCadastroProduto from "./formularioCadastroProduto";
-import FormularioCadastroConsumo from "./formularioCadastroConsumo";
+import FormularioCadastroCliente from "./CadastroCliente";
+import EditarCliente from "./EditarCliente";
+import ExcluirCliente from "./ExcluirCliente";
+import FormularioCadastroProduto from "./CadastroProduto";
+import EditarProduto from "./EditarProduto";
+import ExcluirProduto from "./ExcluirProduto";
+import FormularioCadastroConsumo from "./CadastroConsumo";
 import Listagem from "./Listagem";
 
 type state = {
@@ -28,7 +32,7 @@ export default class Roteador extends Component<{}, state> {
     }
 
     render() {
-        let barraNavegacao = <BarraNavegacao seletorView={this.selecionarView} tema="purple lighten-4" botoes={['Home', 'Cadastrar clientes', 'Cadastrar produto', 'Cadastrar consumo', 'Listagens']} />
+        let barraNavegacao = <BarraNavegacao seletorView={this.selecionarView} tema="purple lighten-4" botoes={['Home', 'Cadastrar cliente', 'Editar cliente', 'Excluir cliente', 'Cadastrar produto', 'Editar produto', 'Excluir produto', 'Cadastrar consumo', 'Listagens']} />
         if (this.state.tela === 'Home') {
             return (
                 <>
@@ -36,11 +40,25 @@ export default class Roteador extends Component<{}, state> {
                     <Home tema="purple lighten-4" />
                 </>
             )
-        } else if (this.state.tela === 'Cadastrar clientes') {
+        } else if (this.state.tela === 'Cadastrar cliente') {
             return (
                 <>
                     {barraNavegacao}
                     <FormularioCadastroCliente tema="purple lighten-4" />
+                </>
+            )
+        } else if (this.state.tela === 'Editar cliente') {
+            return (
+                <>
+                    {barraNavegacao}
+                    <EditarCliente tema="purple lighten-4" />
+                </>
+            )
+        } else if (this.state.tela === 'Excluir cliente') {
+            return (
+                <>
+                    {barraNavegacao}
+                    <ExcluirCliente tema="purple lighten-4" />
                 </>
             )
         } else if (this.state.tela === 'Cadastrar produto') {
@@ -48,6 +66,20 @@ export default class Roteador extends Component<{}, state> {
                 <>
                     {barraNavegacao}
                     <FormularioCadastroProduto tema="purple lighten-4" />
+                </>
+            )
+        } else if (this.state.tela === 'Editar produto') {
+            return (
+                <>
+                    {barraNavegacao}
+                    <EditarProduto tema="purple lighten-4" />
+                </>
+            )
+        } else if (this.state.tela === 'Excluir produto') {
+            return (
+                <>
+                    {barraNavegacao}
+                    <ExcluirProduto tema="purple lighten-4" />
                 </>
             )
         } else if (this.state.tela === 'Cadastrar consumo') {

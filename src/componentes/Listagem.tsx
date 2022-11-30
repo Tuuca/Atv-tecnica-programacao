@@ -9,7 +9,6 @@ type props = {
 
 export default class Listagem extends Component<props> {
     render() {
-        let estilo = `collection-item active ${this.props.tema}`
         return (
             
             <div className="collection">

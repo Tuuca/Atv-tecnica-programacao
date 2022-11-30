@@ -33,8 +33,8 @@ export default class FormularioCadastroCliente extends Component<props> {
                     </div>
                     <div className="row">
                         <div className="col s12">
-                            <button className={estiloBotao} type="submit" name="action">Submit
-                                <i className="material-icons right">Cadastrar</i>
+                            <button className={estiloBotao} type="submit" name="action">Cadastrar
+                                <i className="material-icons right"></i>
                             </button>
                         </div>
                     </div>

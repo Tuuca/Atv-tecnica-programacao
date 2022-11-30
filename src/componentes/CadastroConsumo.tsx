@@ -4,28 +4,29 @@ type props = {
     tema: string
 }
 
-export default class FormularioCadastroConsumo extends Component<props>{
-    render(){
+export default class FormularioCadastroConsumo extends Component<props> {
+
+    render() {
         let estiloBotao = `btn waves-effect waves-light ${this.props.tema}`
-        return(
+        return (
             <div className="row">
                 <form className="col s12">
                     <div className="row">
                         <div className="input-field col s6">
-                            <input id="Nome" type="text" className="validate" />
-                            <label htmlFor="Nome">Nome</label>
+                            <input id="CPF" type="text" className="validate" />
+                            <label htmlFor="CPF">CPF do cliente:</label>
                         </div>
                     </div>
                     <div className="row">
                         <div className="input-field col s6">
-                            <input id="Preco" type="text" className="validate" />
-                            <label htmlFor="Preco">Preço</label>
+                            <input id="nome" type="text" className="validate" />
+                            <label htmlFor="nome">Nome do produto: </label>
                         </div>
                     </div>
                     <div className="row">
                         <div className="col s12">
-                            <button className={estiloBotao} type="submit" name="action">Submit
-                                <i className="material-icons right">Cadastrar</i>
+                            <button className={estiloBotao} type="submit" name="action">Cadastrar
+                                <i className="material-icons right"></i>
                             </button>
                         </div>
                     </div>
