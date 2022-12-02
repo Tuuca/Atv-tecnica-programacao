@@ -1,37 +1,47 @@
+import { useState } from "react"
+import { editarCliente } from '../services/request';
+
 export default function EditarCliente(props) {
+
+    const [values, setValues] = useState([]);
+    const pega = (value) => {
+        setValues(preValue => ({
+
+            ...preValue,
+            [value.target.name]: value.target.value,
+
+        }))
+    }
+
     let estiloBotao = `btn waves-effect waves-light ${props.tema}`
     return (
         <div className="row">
             <form className="col s12">
                 <div className="row">
                     <div className="input-field col s6">
-                        <input id="editar" type="text" className="validate" />
-                        <label htmlFor="editar">CPF do cliente que deseja editar:</label>
+                        <input name="cpf" type="text" className="validate" onChange={pega}/>
+                        <label htmlFor="cpf">CPF do cliente que deseja editar:</label>
                     </div>
                 </div>
                 <div className="row">
                     <div className="input-field col s6">
-                        <input id="Nome" type="text" className="validate" />
-                        <label htmlFor="Nome">Nome</label>
-                    </div>
-                    <div className="input-field col s6">
-                        <input id="CPF" type="text" className="validate" />
-                        <label htmlFor="CPF">CPF</label>
+                        <input name="nome" type="text" className="validate" onChange={pega}/>
+                        <label htmlFor="nome">Nome</label>
                     </div>
                 </div>
                 <div className="row">
                     <div className="input-field col s6">
-                        <input id="Genero" type="text" className="validate" />
-                        <label htmlFor="Genero">Genero</label>
+                        <input name="genero" type="text" className="validate" onChange={pega}/>
+                        <label htmlFor="genero">Genero</label>
                     </div>
                     <div className="input-field col s6">
-                        <input id="Data" type="date" className="validate" />
-                        <label htmlFor="Data">Data de emissão</label>
+                        <input name="dataemissao" type="date" className="validate" onChange={pega}/>
+                        <label htmlFor="dataemissao">Data de emissão</label>
                     </div>
                 </div>
                 <div className="row">
                     <div className="col s12">
-                        <button className={estiloBotao} type="submit" name="action">Editar
+                        <button className={estiloBotao} type="submit" name="action" onClick={() => editarCliente(values)}>Editar
                             <i className="material-icons right"></i>
                         </button>
                     </div>

@@ -1,31 +1,45 @@
+import { useState } from "react"
+import { createCliente } from '../services/request';
+
 export default function FormularioCadastroCliente(props) {
+
+    const [values, setValues] = useState([]);
+    const pega = (value) => {
+        setValues(preValue => ({
+
+            ...preValue,
+            [value.target.name]: value.target.value,
+
+        }))
+    }
+
     let estiloBotao = `btn waves-effect waves-light ${props.tema}`
     return (
         <div className="row">
             <form className="col s12">
                 <div className="row">
                     <div className="input-field col s6">
-                        <input id="Nome" type="text" className="validate" />
-                        <label htmlFor="Nome">Nome</label>
+                        <input name="nome" type="text" className="validate" onChange={pega}/>
+                        <label htmlFor="nome">Nome</label>
                     </div>
                     <div className="input-field col s6">
-                        <input id="CPF" type="text" className="validate" />
-                        <label htmlFor="CPF">CPF</label>
+                        <input name="cpf" type="text" className="validate" onChange={pega}/>
+                        <label htmlFor="cpf">CPF</label>
                     </div>
                 </div>
                 <div className="row">
                     <div className="input-field col s6">
-                        <input id="Genero" type="text" className="validate" />
-                        <label htmlFor="Genero">Genero</label>
+                        <input name="genero" type="text" className="validate" onChange={pega}/>
+                        <label htmlFor="genero">Genero</label>
                     </div>
                     <div className="input-field col s6">
-                        <input id="Data" type="date" className="validate" />
-                        <label htmlFor="Data">Data de emissão</label>
+                        <input name="dataemissao" type="date" className="validate" onChange={pega}/>
+                        <label htmlFor="dataemissao">Data de emissão</label>
                     </div>
                 </div>
                 <div className="row">
                     <div className="col s12">
-                        <button className={estiloBotao} type="submit" name="action">Cadastrar
+                        <button className={estiloBotao} type="submit" name="action" onClick={() => createCliente(values)}>Cadastrar
                             <i className="material-icons right"></i>
                         </button>
                     </div>

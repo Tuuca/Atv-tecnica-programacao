@@ -3,7 +3,6 @@ export default function Listagem(props) {
     return (
 
         <div className="collection">
-
             <h4>Listagem geral de clientes</h4>
             <a className="collection-item">Cliente 1</a>
             <a className="collection-item">Cliente 2</a>
