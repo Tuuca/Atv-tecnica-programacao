@@ -20,5 +20,3 @@ $ npm install
 $ npm start
 ```
 
-Esses comandos irá iniciar o BackEnd da aplicação. Caso queira rodar a aplicação por completo baixe os repositórios [Bot](https://github.com/The-Seven-DSM/Send.me-Bot-2022-2) e [FrontEnd](https://github.com/The-Seven-DSM/Send.me-FrontEnd-2022-2) e siga suas intruções.
-
