@@ -6,7 +6,6 @@ import route from './routes/routes'
 const port =  process.env.PORT || 3001;
 
 
-
 app.use(cors())
 app.use(express.json());
 app.listen(port, ()=>{
@@ -19,6 +18,7 @@ db.authenticate().then(()=>{  //Testando conexão com o banco de dados
 }).catch((err)=>{
     console.log(err);
 });
+
 
 db.sync().then(()=>{   //Sincronizando o banco com possíveis mudanças nas tabelas
     console.log('db is sync');

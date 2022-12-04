@@ -2,6 +2,7 @@ import express from "express";
 import ClienteControllers from "../controllers/ClienteControllers";
 import ConsumoControllers from "../controllers/ConsumoControllers";
 import ProdutosControllers from "../controllers/ProdutosControllers";
+import ListagemControllers from "../controllers/ListagemControllers";
 
 
 const route = express.Router();
@@ -62,6 +63,48 @@ route.get(
 route.post(
     "/produtoUpdate",
     ProdutosControllers.update
+)
+
+// ----------------- LISTAGEM -----------------
+
+route.get(
+    "/listagemCliente",
+    ListagemControllers.listagemCliente
+)
+
+route.get(
+    "/listagemProduto",
+    ListagemControllers.listagemProduto
+)
+
+route.get(
+    "/listagem9",
+    ListagemControllers.listagem9
+)
+
+route.get(
+    "/listagem10",
+    ListagemControllers.listagem10
+)
+
+route.get(
+    "/listagem11",
+    ListagemControllers.listagem11
+)
+
+route.get(
+    "/listagem12",
+    ListagemControllers.listagem12
+)
+
+route.get(
+    "/listagem13",
+    ListagemControllers.listagem13
+)
+
+route.get(
+    "/listagem14",
+    ListagemControllers.listagem14
 )
 
 

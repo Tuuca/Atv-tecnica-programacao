@@ -1,8 +1,10 @@
 import { DataTypes, Model } from "sequelize";
 import db from "../config/Database.config";
+
 (async ()=>{
   await db.sync({force:true});
 })
+
 export class Cliente extends Model {}
 Cliente.init(
   {

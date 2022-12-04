@@ -6,6 +6,7 @@ import { Cliente } from "./cliente";
 (async ()=>{
   await db.sync({force:true});
 })
+
 export class Consumo extends Model {}
 Consumo.init(
   {
